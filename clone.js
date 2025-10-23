@@ -1,31 +1,22 @@
-  const form = document.getElementById('loginForm');
-  const result = document.getElementById('result');
+const form = document.getElementById('contactForm');
+const result = document.getElementById('result');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Prevent page redirect
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  result.textContent = "";
 
-    result.textContent = "Submitting...";
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        result.style.color = "green";
-        result.textContent = "✅ Login done successfully!";
-        form.reset();
-      } else {
-        result.style.color = "red";
-        result.textContent = "❌ Something went wrong, please try again!";
-      }
-    } catch (error) {
-      result.style.color = "red";
-      result.textContent = "⚠️ Network error!";
-    }
+  const formData = new FormData(form);
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    body: formData
   });
+
+  const data = await response.json();
+
+  if (data.success) {
+    result.textContent = "";
+    form.reset();
+  } else {
+    result.textContent = "";
+  }
+});
