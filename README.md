@@ -1,6 +1,6 @@
-# maleficient0033
+# maleficent0033
 
-> Personal/project website built with React — **maleficient0033.netlify.app**
+> Personal/project website built with React — **maleficent0033.netlify.app**
 
 ---
 
@@ -8,7 +8,7 @@
 
 This repository contains a React-based website (personal or project showcase). This README explains how to run the project locally, build it, and deploy it to Netlify. Use it as a template and customize sections to match your project's tools and configuration.
 
-**Live demo:** [https://maleficient0033.netlify.app](https://maleficient0033.netlify.app)
+**Live demo:** [https://maleficent0033.netlify.app](https://maleficent0033.netlify.app)
 
 ---
 
